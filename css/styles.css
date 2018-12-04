@@ -50,7 +50,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 }
 /* ====================== Navigation ====================== */
 nav {
-  display: flex;
   width: 100%;
   height: 80px;
   background-color: #252831;
@@ -104,6 +103,27 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
+
+#maincontent #map-container {
+  height: 400px;
+  width: 100%;
+  background-color: #ccc;
+}
+
+#maincontent-top > #map-container, #maincontent-top > #map-container > #map {
+  height: 200px;
+}
+
+.inside #map-container {
+  background: green none repeat scroll 0 0;
+  width: 100%;
+}
+
+@media (min-width:700px)  { 
+  #maincontent-top > #map-container, #maincontent-top > #map-container > #map {
+    height: 560px;
+  }
+ }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
   width: 100%;
@@ -129,9 +149,22 @@ nav h1 a {
   padding: 0 10px;
   width: 200px;
 }
+@media (min-width:481px)  { 
+  .filter-options {
+    flex-direction: row;
+  }
+  .filter-options select {
+    display: flex;
+    flex-grow: 1;
+  }
+ }
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
@@ -147,14 +180,16 @@ nav h1 a {
   padding: 0 30px 25px;
   text-align: left;
   width: 270px;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;    
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
-  max-width: 100%;
-  min-height: 248px;
-  min-width: 100%;
+  width: 100%;
+  
 }
 #restaurants-list li h1 {
   color: #f18200;
@@ -273,4 +308,9 @@ nav h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+@media (min-width:700px)  { 
+  #maincontent-top {
+    flex-direction: row-reverse;
+  }
 }
