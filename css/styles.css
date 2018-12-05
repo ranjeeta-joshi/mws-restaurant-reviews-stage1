@@ -71,7 +71,7 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+   
 }
 
 /* Display list items side by side */
@@ -100,8 +100,9 @@ nav h1 a {
 /* ====================== Map ====================== */
 #map {
   height: 400px;
-  width: 100%;
+  width: li100%;
   background-color: #ccc;
+  float: right;
 }
 
 #maincontent #map-container {
@@ -220,7 +221,7 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 1000;
@@ -228,7 +229,7 @@ nav h1 a {
 .inside #map-container {
   background: blue none repeat scroll 0 0;
   height: 87%;
-  position: fixed;
+  position: relative;
   right: 0;
   top: 80px;
   width: 50%;
