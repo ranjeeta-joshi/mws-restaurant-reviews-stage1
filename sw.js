@@ -1,9 +1,9 @@
 let staticCacheName = 'restaurant-static-v1';
 
-self.addEventListener('install', function(event) {
+self.addEventListener('install', function (event) {
 	event.waitUntil(
-		caches.open(staticCacheName).then(function(cache) {
-			return cache.addAll([
+		caches.open(staticCacheName).then(function (cache) {
+			return caches.addAll([
 				'./',
 				'./index.html',
 				'./restaurant.html',
@@ -28,15 +28,15 @@ self.addEventListener('install', function(event) {
 	);
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', function (event) {
 	event.waitUntil(
 		caches.keys()
-		.then(function(cacheNames) {
+		.then(function (cacheNames) {
 			return Promise.all(
-				cacheNames.filter(function(cacheName) {
+				cacheNames.filter(function (cacheName) {
 					return cacheName.startsWith('restaurant-') &&
-						   cacheName != staticCacheName;
-				}).map(function(cacheName) {
+						cacheName != staticCacheName;
+				}).map(function (cacheName) {
 					return caches.delete(cacheName);
 				})
 			);
@@ -44,10 +44,10 @@ self.addEventListener('activate', function(event) {
 	);
 })
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
 	event.respondWith(
 		caches.match(event.request)
-		.then(function(response) {
+		.then(function (response) {
 			return response || fetch(event.request);
 		})
 	);
